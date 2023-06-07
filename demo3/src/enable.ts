@@ -1,21 +1,20 @@
 import { exec } from 'child_process';
 
-// 启用算法容器
+//  启用算法容器
 let sh = "bash";
 let shPath = "./sh/enable_ai.sh";
 let containerName = "playphone1.1";
-let imageName = "playphone:1.1";
+// let imageName = "playphone:1.1";
 let imagePath = "C:\\Users\\yjby\\Desktop\\工作文件\\playphone1.1.tar";
 let nvrApiUrl = "172.19.1.198/ai-nvr";
-let faceVolumnDir = "/home/ai-nvr/facedata"
+// let faceVolumnDir = "/home/ai-nvr/facedata"
 let shParams: string[] = [
     sh,
     shPath,
     containerName,
-    imageName,
     imagePath,
     nvrApiUrl,
-    faceVolumnDir,
+    // faceVolumnDir,
 ]
 exec(shParams.join(" "), (error, stdout, stderr) => {
     if (error) {

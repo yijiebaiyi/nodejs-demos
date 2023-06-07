@@ -4,21 +4,19 @@
 
 # 请求参数备注
 # container_name=$1
-# image_name=$2
-# image_path=$3
-# nvr_api_url=$4
-# face_volume_dir=$5
-# algorithmStatus=$6
-if [ $# -lt 6 ]; then
+# image_path=$2
+# nvr_api_url=$3
+# algorithmStatus=$4
+if [ $# -lt 4 ]; then
     echo "params error, now params count: $#"
     exit 9
 fi
 
-image_name=$2
-algorithmStatus=$6
+algorithmStatus=$4
+container_name=$1
 
 # 1.删除旧算法
-bash ./sh/destroy_ai.sh "$image_name"
+bash ./sh/destroy_ai.sh "$container_name"
 if [ $? -ne 0 ]; then
   echo "$0: destroy older version failed!"
   exit 1
@@ -27,7 +25,6 @@ fi
 echo "$0: destroy older version success!"
 
 # 2.如果当前状态是开启状态，则启用算法。否则不做操作。
-$6=""
 if [ $algorithmStatus -eq 1 ]; then
   bash ./sh/enable_ai.sh "$@"
   if [ $? -ne 0 ]; then

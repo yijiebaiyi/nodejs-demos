@@ -3,11 +3,11 @@ import { exec } from 'child_process';
 // 卸载算法容器
 let sh = "bash";
 let shPath = "./sh/destroy_ai.sh";
-let imageName = "playphone:1.1";
+let containerName = "playphone1.1";
 let shParams: string[] = [
     sh,
     shPath,
-    imageName,
+    containerName,
 ]
 exec(shParams.join(" "), (error, stdout, stderr) => {
     if (error) {

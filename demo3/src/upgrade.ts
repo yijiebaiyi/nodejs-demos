@@ -4,19 +4,19 @@ import { exec } from 'child_process';
 let sh = "bash";
 let shPath = "./sh/upgrade_ai.sh";
 let containerName = "playphone1.1";
-let imageName = "playphone:1.1";
+// let imageName = "playphone:1.1";
 let imagePath = "C:\\Users\\yjby\\Desktop\\工作文件\\playphone1.1.tar";
 let nvrApiUrl = "172.19.1.198/ai-nvr";
-let faceVolumnDir = "/home/ai-nvr/facedata";
+// let faceVolumnDir = "/home/ai-nvr/facedata";
 let algorithmStatus = "1";
 let shParams: string[] = [
     sh,
     shPath,
     containerName,
-    imageName,
+    // imageName,
     imagePath,
     nvrApiUrl,
-    faceVolumnDir,
+    // faceVolumnDir,
     algorithmStatus
 ]
 exec(shParams.join(" "), (error, stdout, stderr) => {
