@@ -8,3 +8,7 @@ study nodejs
 ## [demo3] nodejs调用sh脚本
 
 ## [demo4] nodejs请求http接口下载文件
+
+## [demo5] 测试多条件嵌套
+
+## [demo6] 自己实现一个缓存器

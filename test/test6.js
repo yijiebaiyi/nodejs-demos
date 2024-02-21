@@ -1,4 +1,177 @@
-const jsonData = require('./jsondata');
+const jsonData = [
+    {
+        "level": 1,
+        "rules": [
+            {
+                "key": "TEM",
+                "value": 22,
+                "operator": 5,
+                "relation": 0
+            },
+            {
+                "key": "TEM",
+                "value": 25,
+                "operator": 6,
+                "relation": 0
+            },
+            {
+                "key": "HUM",
+                "value": 0.45,
+                "operator": 5,
+                "relation": 0
+            },
+            {
+                "key": "HUM",
+                "value": 0.6,
+                "operator": 6,
+                "relation": 0
+            },
+            {
+                "key": "PRES",
+                "value": 1010,
+                "operator": 5,
+                "relation": 0
+            },
+            {
+                "key": "PRES",
+                "value": 1100,
+                "operator": 6,
+                "relation": 0
+            }
+        ]
+    },
+    {
+        "level": 2,
+        "rules": [
+            {
+                "key": "TEM",
+                "value": 15,
+                "operator": 5,
+                "relation": 0,
+                "leftParenthesis": 2
+            },
+            {
+                "key": "TEM",
+                "value": 22,
+                "operator": 2,
+                "relation": 1,
+                "rightParenthesis": 1
+            },
+            {
+                "key": "TEM",
+                "value": 25,
+                "operator": 0,
+                "relation": 0,
+                "leftParenthesis": 1
+            },
+            {
+                "key": "TEM",
+                "value": 30,
+                "operator": 6,
+                "relation": 1,
+                "rightParenthesis": 2
+            },
+            {
+                "key": "HUM",
+                "value": 0.2,
+                "operator": 5,
+                "relation": 0,
+                "leftParenthesis": 2
+            },
+            {
+                "key": "HUM",
+                "value": 0.45,
+                "operator": 2,
+                "relation": 1,
+                "rightParenthesis": 1
+            },
+            {
+                "key": "HUM",
+                "value": 0.6,
+                "operator": 0,
+                "relation": 0,
+                "leftParenthesis": 1
+            },
+            {
+                "key": "HUM",
+                "value": 0.8,
+                "operator": 6,
+                "relation": 1,
+                "rightParenthesis": 2
+            },
+            {
+                "key": "PRES",
+                "value": 1000,
+                "operator": 5,
+                "relation": 0,
+                "leftParenthesis": 2
+            },
+            {
+                "key": "PRES",
+                "value": 1010,
+                "operator": 2,
+                "relation": 1,
+                "rightParenthesis": 1
+            },
+            {
+                "key": "PRES",
+                "value": 1100,
+                "operator": 0,
+                "relation": 0,
+                "leftParenthesis": 1
+            },
+            {
+                "key": "PRES",
+                "value": 1200,
+                "operator": 6,
+                "relation": 0,
+                "rightParenthesis": 2
+            }
+        ]
+    },
+    {
+        "level": 3,
+        "rules": [
+            {
+                "key": "TEM",
+                "value": 15,
+                "operator": 2,
+                "relation": 1
+            },
+            {
+                "key": "TEM",
+                "value": 30,
+                "operator": 0,
+                "relation": 1
+            },
+            {
+                "key": "HUM",
+                "value": 0.2,
+                "operator": 2,
+                "relation": 1
+            },
+            {
+                "key": "HUM",
+                "value": 0.8,
+                "operator": 0,
+                "relation": 1
+            },
+            {
+                "key": "PRES",
+                "value": 1000,
+                "operator": 2,
+                "relation": 1
+            },
+            {
+                "key": "PRES",
+                "value": 1200,
+                "operator": 0,
+                "relation": 1
+            }
+        ]
+    }
+];
+
 function evaluateCondition(condition, data) {
     const { key, value, operator } = condition;
     const dataValue = data[key];
@@ -21,8 +194,7 @@ function evaluateCondition(condition, data) {
     }
 }
 
-/*
-function evaluateRuleSet(ruleSet, data, result) {
+function evaluateRuleSet1(ruleSet, data, result) {
     if (ruleSet.length === 0) {
         return result;
     }
@@ -58,7 +230,7 @@ function evaluateRuleSet(ruleSet, data, result) {
 }
 
 
-function evaluateRuleSet1(ruleSet, data) {
+function evaluateRuleSet(ruleSet, data) {
     let result = true;
     let orResult = false; // 用于存储OR关系的结果
 
@@ -101,9 +273,8 @@ function getMatchedLevel(jsonData, data) {
 
     return 0; // 没有匹配的规则
 }
-*/
 
-
+/*
 function evaluateRuleSet(ruleSet, data) {
     let result = true;
     let orResult = false;
@@ -161,6 +332,7 @@ function getMatchedLevel(jsonData, data) {
 
     return matchedLevel;
 }
+*/
 
 function testfunc(data) {
     let res = 0;
@@ -186,7 +358,6 @@ function testfunc(data) {
     return res;
 }
 
-/*
 let totalNum = 0;
 let errNum = 0;
 for (let temp = 12; temp < 35; temp++) {
@@ -204,7 +375,6 @@ for (let temp = 12; temp < 35; temp++) {
     }
 }
 console.log("错误率： ", errNum / totalNum)
-*/
 
 const data = { TEM: 26, HUM: 0.6, PRES: 1100 };
 const res1 = getMatchedLevel(jsonData, data);
